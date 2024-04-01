@@ -33,6 +33,16 @@ def printNode(head: Node):
         node = node.next
 
 
+# Node Insertion at end
+def insertEnd(head: Node, value: any):
+    temp = head
+    while head.next != None:
+        head = head.next
+    newNode = Node(value)
+    head.next = newNode
+    return temp
+
+
 # Node Insertion at beginning
 def insertFirst(head: Node, value: any):
     newnode = Node(value)
@@ -51,9 +61,71 @@ def insertBetween(head: Node, index: int, value: any):
     return head
 
 
+# Node Deletion at end
+def deleteEnd(head: Node):
+    temp = head
+    while temp.next != None:
+        temp1 = temp
+        temp = temp.next
+    temp1.next = None
+    return head
+
+
+# Node Deletion at beginning
+def deleteFirst(head: Node):
+    temp = head.next
+    head = temp
+    return head
+
+
+# Node Deletion in between
+def deleteBetween(head: Node, index: int):
+    temp = head
+    for _ in range(index-1):
+        temp = temp.next
+    newTemp = temp.next
+    temp.next = newTemp.next
+    return head
+
+
+# Node Updation at any index
+def nodeUpdate(head: Node, index: int, value: any):
+    temp = head
+    if(index==0):
+        head.value = value
+    else:
+        for _ in range(index):
+            head = head.next
+        head.value = value
+    return temp
+
+
+
 # Method calls
+print("Insert one: ")
+printNode(node1)
+print("Insert first: ")
 printNode(insertFirst(node1, 68))
+print("Insert many: ")
 currentListHead = createNode(5)
+printNode(currentListHead)
+print("Insert between: ")
 newListHead = insertBetween(currentListHead, 1, 67)
 printNode(newListHead)
+print("Insert end: ")
+newListHead = insertEnd(currentListHead, 19)
+printNode(newListHead)
+print("Delete end: ")
+newListHead = deleteEnd(newListHead)
+printNode(newListHead)
+print("Delete first: ")
+newListHead = deleteFirst(newListHead)
+printNode(newListHead)
+print("Delete between: ")
+newListHead = deleteBetween(newListHead, 1)
+printNode(newListHead)
+print("Update any: ")
+newListHead = nodeUpdate(newListHead, 2, 378)
+printNode(newListHead)
+
 
