@@ -1,8 +1,18 @@
 # Node initialization
 class Node:
-    def __init__(self, value: any, next: hex = None):
+    def __init__(self, value: any, next: object = None):
         self.value = value
         self.next = next
+
+
+"""
+# Can be done Like this:
+class LinkedList:
+    def __init__(self) -> None:
+        self.head = None
+
+    # methods .....
+"""
 
 
 # Single Node Creation and Insertion at end
