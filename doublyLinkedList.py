@@ -53,6 +53,17 @@ class DoublyLinkedList:
             newNode = Node(value)
             self.head = newNode
 
+    def deleteEnd(self) -> object:
+        if self.head:
+            temp = self.head
+            while self.head.next != None:
+                temp1 = self.head
+                self.head = self.head.next
+            temp1.next = None
+            self.head = temp
+        else:
+            pass
+
 
 link = DoublyLinkedList()
 link.insertFirst(5)
@@ -62,3 +73,7 @@ print("Print List: ")
 link.displayList()
 print("Print List Backward: ")
 link.displayListBack()
+link.deleteEnd()
+print("Print List: ")
+link.displayList()
+
