@@ -1,6 +1,6 @@
 # Python Data Structures
 
-<img align="center" src="extras/DSAPython" alt="whichcar" height="320" width="640" />
+<img align="center" src="https://github.com/Alok5102R/Python-Playground-DS/blob/main/extras/DSAPython.png" alt="python_dsa" height="320" width="640" />
 
 This repository contains Python implementations of various data structures commonly used in computer science and software development. Each data structure is implemented with detailed explanations and examples to help you understand their functionality and usage.
 
