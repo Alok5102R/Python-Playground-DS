@@ -23,7 +23,18 @@ This repository serves as a resource for learning about various data structures 
 - Linked List:
   - Single
   - Doubly
-- Stack (Using Link List)
+    
+- Stack (Using Linked List)
+  
+- Queue (Using List):
+  - Single
+  - Double Ended
+  - Circular
+    
+- Queue (Using Linked List):
+  - Single
+  - Double Ended
+  - Circular
 
 ## Contributing
 - [Alok Kumar](https://github.com/Alok5102R)
