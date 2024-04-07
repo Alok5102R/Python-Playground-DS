@@ -110,6 +110,19 @@ def nodeUpdate(head: Node, index: int, value: any):
     return temp
 
 
+# Reverse Link List
+def reverseList(head: Node):
+    prev = None
+    current = head
+
+    while current:
+        temp = current.next
+        current.next = prev
+        prev = current
+        current = temp
+    return prev
+
+
 
 # Method calls
 print("Insert one: ")
@@ -137,5 +150,7 @@ printNode(newListHead)
 print("Update any: ")
 newListHead = nodeUpdate(newListHead, 2, 378)
 printNode(newListHead)
+print("Reverse List: ")
+printNode(reverseList(newListHead))
 
 
