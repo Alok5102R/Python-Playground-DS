@@ -5,152 +5,132 @@ class Node:
         self.next = next
 
 
-"""
-# Can be done Like this:
+
 class LinkedList:
-    def __init__(self) -> None:
+
+    def __init__(self):
         self.head = None
 
-    # methods .....
-"""
+    # Multiple Nodes Creation and Insertion at end
+    def createNode(self, numberOfElements: int):
+        temp = self.head
+        for i in range(numberOfElements):
+            value: any = input(f"Enter data{i+1}: ")
+            newNode = Node(value)
+            temp.next = newNode
+            temp = temp.next
+    
+    # Node iteration
+    def printNode(self):
+        node = self.head
+        while node:
+            print(node.value)
+            node = node.next
+
+    # Node Insertion at end
+    def insertEnd(self, value: any):
+        if self.head:
+            temp = self.head
+            while self.head.next != None:
+                self.head = self.head.next
+            newNode = Node(value)
+            self.head.next = newNode
+            self.head = temp
+        else:
+            self.head = Node(value)
+    
+    # Node Insertion at beginning
+    def insertFirst(self, value: any):
+        newnode = Node(value)
+        newnode.next = self.head
+        self.head = newnode
 
 
-# Single Node Creation and Insertion at end
-node1 = Node(45)
-node2 = Node(89)
-node1.next = node2
-node3 = Node(109)
-node2.next = node3
-
-
-# Multiple Nodes Creation and Insertion at end
-def createNode(numberOfElements: int):
-    head = Node(None)
-    temp = head
-    for i in range(numberOfElements):
-        value: any = input(f"Enter data{i+1}: ")
+    # Node Insertion in between
+    def insertBetween(self, index: int, value: any):
+        temp = self.head
+        for _ in range(index-1):
+            temp = temp.next
         newNode = Node(value)
+        newNode.next = temp.next
         temp.next = newNode
-        temp = temp.next
-    return head.next
 
 
-# Node iteration
-def printNode(head: Node):
-    node = head
-    while node:
-        print(node.value)
-        node = node.next
+    # Node Deletion at end
+    def deleteEnd(self):
+        temp = self.head
+        while temp.next != None:
+            temp1 = temp
+            temp = temp.next
+        temp1.next = None
 
 
-# Node Insertion at end
-def insertEnd(head: Node, value: any):
-    temp = head
-    while head.next != None:
-        head = head.next
-    newNode = Node(value)
-    head.next = newNode
-    return temp
+    # Node Deletion at beginning
+    def deleteFirst(self):
+        temp = self.head.next
+        self.head = temp
 
 
-# Node Insertion at beginning
-def insertFirst(head: Node, value: any):
-    newnode = Node(value)
-    newnode.next = head
-    return newnode
+    # Node Deletion in between
+    def deleteBetween(self, index: int):
+        temp = self.head
+        for _ in range(index-1):
+            temp = temp.next
+        newTemp = temp.next
+        temp.next = newTemp.next
 
 
-# Node Insertion in between
-def insertBetween(head: Node, index: int, value: any):
-    temp = head
-    for _ in range(index-1):
-        temp = temp.next
-    newNode = Node(value)
-    newNode.next = temp.next
-    temp.next = newNode
-    return head
+    # Node Updation at any index
+    def nodeUpdate(self, index: int, value: any):
+        temp = self.head
+        if(index==0):
+            self.head.value = value
+        else:
+            for _ in range(index):
+                self.head = self.head.next
+            self.head.value = value
+        self.head = temp
 
 
-# Node Deletion at end
-def deleteEnd(head: Node):
-    temp = head
-    while temp.next != None:
-        temp1 = temp
-        temp = temp.next
-    temp1.next = None
-    return head
+    # Reverse Link List
+    def reverseList(self):
+        prev = None
+        current = self.head
 
-
-# Node Deletion at beginning
-def deleteFirst(head: Node):
-    temp = head.next
-    head = temp
-    return head
-
-
-# Node Deletion in between
-def deleteBetween(head: Node, index: int):
-    temp = head
-    for _ in range(index-1):
-        temp = temp.next
-    newTemp = temp.next
-    temp.next = newTemp.next
-    return head
-
-
-# Node Updation at any index
-def nodeUpdate(head: Node, index: int, value: any):
-    temp = head
-    if(index==0):
-        head.value = value
-    else:
-        for _ in range(index):
-            head = head.next
-        head.value = value
-    return temp
-
-
-# Reverse Link List
-def reverseList(head: Node):
-    prev = None
-    current = head
-
-    while current:
-        temp = current.next
-        current.next = prev
-        prev = current
-        current = temp
-    return prev
+        while current:
+            temp = current.next
+            current.next = prev
+            prev = current
+            current = temp
+        self.head = prev
 
 
 
-# Method calls
-print("Insert one: ")
-printNode(node1)
-print("Insert first: ")
-printNode(insertFirst(node1, 68))
-print("Insert many: ")
-currentListHead = createNode(5)
-printNode(currentListHead)
-print("Insert between: ")
-newListHead = insertBetween(currentListHead, 1, 67)
-printNode(newListHead)
-print("Insert end: ")
-newListHead = insertEnd(currentListHead, 19)
-printNode(newListHead)
-print("Delete end: ")
-newListHead = deleteEnd(newListHead)
-printNode(newListHead)
-print("Delete first: ")
-newListHead = deleteFirst(newListHead)
-printNode(newListHead)
-print("Delete between: ")
-newListHead = deleteBetween(newListHead, 1)
-printNode(newListHead)
-print("Update any: ")
-newListHead = nodeUpdate(newListHead, 2, 378)
-printNode(newListHead)
+
+myList = LinkedList()
+
+print("Insert End: ")
+myList.insertEnd(6)
+myList.insertEnd("Alok")
+myList.insertEnd("Python")
+myList.insertEnd(9)
+myList.printNode()
+print("Insert First: ")
+myList.insertFirst("Uvicorn")
+myList.printNode()
+print("Insert Between: ")
+myList.insertBetween(3, "Kumar")
+myList.printNode()
+print("Delete First: ")
+myList.deleteFirst()
+myList.printNode()
+print("Delete End: ")
+myList.deleteEnd()
+myList.printNode()
+print("Delete Between: ")
+myList.deleteBetween(2)
+myList.printNode()
 print("Reverse List: ")
-printNode(reverseList(newListHead))
-
+myList.reverseList()
+myList.printNode()
 
