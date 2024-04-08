@@ -28,6 +28,7 @@ class Pallindrome(linkedList.LinkedList):
         self.reverseList()
         self.printNode()
 
+        tempHead = self.head
         print("Pallindrome check: ")
         flag = 0
         for _ in range(length):
@@ -41,6 +42,8 @@ class Pallindrome(linkedList.LinkedList):
             print("Yes Pallindrome")
         else:
             print("Not Pallindrome")
+        self.head = tempHead
+        self.reverseList()
         self.head = currentHead
 
 
@@ -55,4 +58,4 @@ myList.insertEnd(1)
 myList.printNode()
 myList.lengthOfList()
 myList.pallindrome()
-# myList.printNode()
+myList.printNode()
