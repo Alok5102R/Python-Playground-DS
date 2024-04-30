@@ -1,4 +1,6 @@
-# Example usage:
+# Knapsack Algorithm (0/1 Knapsack)
+# Time Complexity => O(n*budget)
+# Space Complexity => O(budget)
 
 price = [5, 10, 20, 15, 12, 7, 4, 17]
 article = [4, 5, 10, 18, 13, 9, 18, 7]
@@ -6,14 +8,13 @@ Budget = 25
 
 # Buy max article at given budget.
 
-def max_articles_within_budget(prices, articles, budget):
+def max_articles_within_budget(prices: list[int], articles: list[int], budget: int):
     n = len(prices)
     dp = [0] * (budget + 1)
     selected_indices = [[] for _ in range(budget + 1)]
     for i in range(n):
         for j in range(budget, prices[i] - 1, -1):
             if dp[j] < dp[j - prices[i]] + articles[i]:
-                print(str(dp[j]) + " " + str(dp[j - prices[i]] + articles[i]))
                 dp[j] = dp[j - prices[i]] + articles[i]
                 selected_indices[j] = selected_indices[j - prices[i]] + [i]
 

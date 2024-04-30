@@ -1,7 +1,7 @@
 import threading
 from concurrent.futures import ThreadPoolExecutor
 from time import sleep, perf_counter
-
+from functools import reduce
 
 
 # ======================  Working with variables and tuples ======================  
@@ -93,10 +93,28 @@ pooling()
 # Usage3: Execute multiple thread using map() and ThreadPoolExecutor() to shorten code and schedule as a task
 def pooling():
     with ThreadPoolExecutor() as executor:
-        lists = [1,2,3,4]
-        results = executor.map(cubeofnum1, lists)
+        list_of_arguments = [1,2,3,4]
+        generator_of_rresults = executor.map(cubeofnum1, list_of_arguments)
 
-        for result in results:
+        for result in generator_of_rresults:
             print(result)  # To get return value
 
 pooling()
+
+
+
+# ======================  Map, Filter, Reduce  ======================  
+
+listnums = [1,4,3,7,8,9,5]
+
+# Map -> <sequence_type>(map(<function>,sequence))
+doubleNums = list(map(lambda x: x*2, listnums))
+print(doubleNums)
+
+# Filter -> <sequence_type>(filter(<function>,sequence))
+lessThanNine = tuple(filter(lambda x: x<9,doubleNums))
+print(lessThanNine)
+
+# Reduce -> reduce(<function>,sequence)
+sumOfNums = reduce(lambda a,b: a+b, lessThanNine)
+print(sumOfNums)
