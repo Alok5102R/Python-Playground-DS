@@ -2,6 +2,11 @@
 # Time complexity => Best: O(nlogn) | Average: O(nlogn)
 # Space complexity => Worst: O(n)
 
+# Approach:
+# Divide and merge:
+# - Divide array till we get single element in each array
+# - Then sort and merge them.
+
 arrayList:list = [2,56,4,78,37,39,56,8,47]
 low = 0
 high = len(arrayList)-1
