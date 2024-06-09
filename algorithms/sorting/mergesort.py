@@ -1,5 +1,5 @@
 # Merge Sort
-# Time complexity => Best: O(nlogn) | Average: O(nlogn)
+# Time complexity => Best: O(nlogn) | Average: O(nlogn) | Worst: O(nlogn)  - Worst case is better than Quick sort's worst case
 # Space complexity => Worst: O(n)
 
 # Approach:
