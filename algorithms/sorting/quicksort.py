@@ -1,3 +1,6 @@
+# Quick Sort (Fastest Algo)
+# Time complexity => Best: O(nlogn) | Average: O(nlogn) | Worst: O(n^2)
+# Space complexity => Worst: O(logn) - Due to Recursive call
 
 list1 = [12,12,23,56,28,40,23,48,79,11]
 
